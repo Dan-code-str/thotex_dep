@@ -202,7 +202,7 @@ class CompraDetalle(generics.RetrieveUpdateDestroyAPIView):
         instance = self.get_object()
         self.perform_destroy(instance)
 
-        return JsonResponse({"mensaje": "Compra eliminada exitosamente"}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({"mensaje": "Compra eliminada exitosamente"}, safe=False, status=status.HTTP_204_NO_CONTENT)
     
     def perform_destroy(self, instance):
         instance.delete()
